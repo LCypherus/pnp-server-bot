@@ -8,7 +8,7 @@ module.exports = (client) => {
     client.on('guildMemberAdd', (member) => {
         console.log(member);
 
-        const message = `Hi <@${member.id}> `;
+        const message = `Hi <@${member.id}> <#${channelGetaRole}>`;
 
         const channel = member.guild.channels.cache.get(channelId);
         channel.send(message);
