@@ -4,7 +4,7 @@ function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 
-async function roll(rollString){
+function roll(rollString){
 	let rollBreakdown = rollString.matchAll(/(\d+)d(\d+)/g);
 	rollBreakdown = [...rollBreakdown];
 	var totals = []
