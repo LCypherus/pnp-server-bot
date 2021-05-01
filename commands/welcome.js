@@ -1,9 +1,9 @@
 module.exports = (client) => {
-    const channelId = "837970685489709076"; //welcome channel
-    const channelGetaRole = "837976009151873024";
-    const channelGeneralTalk = "837976038004359189";
-    const channelCurrentGames = "837976070484918272";
-    const channelTicketInfo = "837976105646293012";
+    const channelId = "688102078421139538"; //welcome channel
+    const channelGetaRole = "804618910779310080";
+    const channelGeneralTalk = "685877740481544211";
+    const channelCurrentGames = "733960041719136327";
+    const channelTicketInfo = "773553022843748382";
 
     client.on('guildMemberAdd', (member) => {
         console.log(member);
