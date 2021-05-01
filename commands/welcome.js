@@ -16,7 +16,7 @@ We ask you please head over to ${member.guild.channels.cache.get(channelGetaRole
 At ${member.guild.channels.cache.get(channelCurrentGames).toString()} you find all the tables and if they are in need of new players. Your can also check for available seats in a table to check the category name. If you wish to start your own table then head over to ${member.guild.channels.cache.get(channelTicketInfo).toString()}  to open a ticket so we can talk about it.
                     
 Again, Welcome and enjoy your stay!
-<@453208397618085899>`;
+<@453208397618085899> and <@283395860035928075>`;
 
         const channel = member.guild.channels.cache.get(channelId);
         channel.send(message);
