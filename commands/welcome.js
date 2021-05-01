@@ -17,7 +17,7 @@ At <#${channelCurrentGames}> you find all the tables and if they are in need of 
                     
 Again, Welcome and enjoy your stay!
 <@453208397618085899> 
-<@Grand Master>`;
+<@&733822632004288553>`;
 
         const channel = member.guild.channels.cache.get(channelId);
         channel.send(message);
