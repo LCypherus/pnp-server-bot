@@ -1,10 +1,6 @@
-const replies = ['Hello there 🖖🖖', 'Yo Yo 🤳', 'Ding Dong❌❗❗❌']
-
-const pnp = require('./commands/pnp.js');
-const gif = require('./commands/gif.js');
 const roll = require('./commands/roll.js');
 
-const commands = { pnp, gif, roll };
+const commands = { roll };
 
 module.exports = async function (msg) {
     let tokens = msg.content.split(' ');
