@@ -5,3 +5,6 @@ This bot is made for the Pen and Players Roleplay Server.
 - Welcome message
 - Basic roll function
 - Automatic Role statistic
+
+## Coming Soon
+- Reaction Role Creation
