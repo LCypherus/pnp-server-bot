@@ -3,7 +3,8 @@ This bot is made for the Pen and Players Roleplay Server.
 
 ## Functions of the bot
 - Welcome message
-- Basic roll function
+- Basic roll function (&roll)
+- Get invite link (&invitelink)
 
 ## In progress
 - Automatic Role statistic
