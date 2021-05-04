@@ -1,29 +1,22 @@
-const Discord = require('discord.js');
+const fetch = require('node-fetch');
 
 module.exports = {
     execute(msg, args, Discord) {
-        msg.channel.send("", {
+        msg.channel.send({
             embed: {
-                "content": null,
-                "embeds": [
-                {
                     "title": "Pen and Players Roleplayer Server Invite Link",
                     "description": "This is the invite link to invite players to this server.",
                     "color": 5814783,
                     "fields": [
-                    {
-                        "value": "https://discord.gg/ZN4DrdGg"
-                    },
-                    {
-                        "value": "Enjoy!"
-                    }
+                      {
+                        "name": "Link",
+                         "value": "https://discord.gg/ZN4DrdGg"
+                      }
                     ],
                     "footer": {
-                    "text": "If your having a problem with the invite link. Contact L_Cypherus."
+                      "text": "If you're having a problem with the invite link. Contact L_Cypherus."
                     }
                 }
-                ]
-            }
         });
     }
-}
+};
