@@ -8,7 +8,6 @@ module.exports = async function (msg) {
     let command = tokens.shift();
     if (command.charAt(0) === '&') {
         command = command.substring(1);
-        var cmd = commands[command];
-        if (cmd && cmd.execute) cmd.execute(msg, tokens);
+        commands[command](msg, tokens);
     }
 };
