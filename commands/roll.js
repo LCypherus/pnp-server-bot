@@ -1,4 +1,4 @@
-//const fetch = require('node-fetch'); // maybe include this back in if the code fails to work?
+const fetch = require('node-fetch'); // maybe include this back in if the code fails to work?
 const Discord = require("discord.js")
 
 function randomNum(min, max) {
