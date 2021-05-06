@@ -21,4 +21,8 @@ function readyDiscord () {
 
 const commandHandler = require("./commands");
 
-client.on('message', commandHandler);
+async function onMessage(msg) {
+  return await commandHandler.apply(this, [client, msg]);
+};
+
+client.on('message', onMessage);
