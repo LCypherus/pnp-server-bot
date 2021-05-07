@@ -5,6 +5,9 @@ module.exports = async function (client, msg, args){
     let ticketInfo = "This is a general ticket.";
     let ticketPrivate = false;
     let ticketNewTable = false;
+    let textMain = "Hello <@${msg.author.id}>";
+    let textAdminsOnly = "Admins only ticket";
+    let textNewTicket = "New ticket text";
     if (args.length > 0){
         let start = 1;
         if (args[1] == "adminsOnly"){
@@ -15,10 +18,13 @@ module.exports = async function (client, msg, args){
             start = 2;
             ticketNewTable = true;
         }
+        else {
+        }
         let ticketInfo = args.slice(start, args.length);
         ticketInfo = ticketInfo.join(" ");
     }
 
+    console.log(ticketNewTable);
     // Create a new channel.
 
     const ticketCategory = "834881936454713424"; // category for Tickets
@@ -41,10 +47,10 @@ module.exports = async function (client, msg, args){
             }
         ]
         })
-        createdChannel.send(ticketInfo);
+        createdChannel.send(textAdminsOnly);
     }
     else if (ticketNewTable){
-        const createdChannel = await guild.channels.create("Ticket new table: " + msg.author.username,{ 
+        const createdChannel = await guild.channels.create("Ticket new table " + msg.author.username,{ 
         type: "text",
         parent: ticketCategory,
         permissionOverwrites: [
@@ -66,7 +72,7 @@ module.exports = async function (client, msg, args){
             }
         ]
         })
-        createdChannel.send(ticketInfo);
+        createdChannel.send(textNewTicket);
     }
     else{
         const createdChannel = await guild.channels.create("Ticket for 2 " + msg.author.username,{ 
@@ -91,7 +97,7 @@ module.exports = async function (client, msg, args){
             }
         ]
         })
-        createdChannel.send(ticketInfo);
+        createdChannel.send(textMain);
 
     }
 
