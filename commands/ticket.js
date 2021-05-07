@@ -28,6 +28,7 @@ module.exports = async function (client, msg, args){
     if (ticketPrivate){
         guild.channels.create("Ticket: " + msg.author.username,{ // msg.author might be incorrect
         type: "text",
+        parent: ticketCategory,
         permissionOverwrites: [
             {
                 id: msg.guild.roles.everyone, // Everyone
@@ -47,6 +48,7 @@ module.exports = async function (client, msg, args){
     else{
         guild.channels.create("Ticket for " + msg.author.username,{ // msg.author might be incorrect
         type: "text",
+        parent: ticketCategory,
         permissionOverwrites: [
             {
                 id: msg.guild.roles.everyone, // Everyone
