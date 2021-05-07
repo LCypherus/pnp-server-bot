@@ -15,6 +15,8 @@ module.exports = async function (client, msg, args){
         }
         let ticketInfo = args.slice(start, args.length);
         ticketInfo = ticketInfo.join(" ");
+
+        console.log(msg.author)
     }
     /* 
     Create a new channel.
@@ -24,7 +26,7 @@ module.exports = async function (client, msg, args){
     */
     const ticketCategory = "834881936454713424"; // Set this to the number for the category for Tickets
     if (ticketPrivate){
-        guild.channels.create("Ticket: " + msg.author,{ // msg.author might be incorrect
+        guild.channels.create("Ticket: " + msg.author.username,{ // msg.author might be incorrect
         type: "text",
         permissionOverwrites: [
             {
@@ -43,7 +45,7 @@ module.exports = async function (client, msg, args){
         })
     }
     else{
-        guild.channels.create("Ticket for " + msg.author,{ // msg.author might be incorrect
+        guild.channels.create("Ticket for " + msg.author.username,{ // msg.author might be incorrect
         type: "text",
         permissionOverwrites: [
             {
