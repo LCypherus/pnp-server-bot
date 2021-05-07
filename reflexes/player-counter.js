@@ -8,6 +8,5 @@ module.exports = async (client) => {
 
         const channel = guild.channels.cache.get('839084693315649566');
         channel.setName(`Players: ${count}`);
-        console.log('Updating Member Count');
     }, 10000);
 }
