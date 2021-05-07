@@ -1,22 +1,16 @@
-const fetch = require('node-fetch');
+const Discord = require('discord.js');
 
-module.exports = {
-    execute(msg, args, Discord) {
-        msg.channel.send({
-            embed: {
-                    "title": "Pen and Players Roleplayer Server Invite Link",
-                    "description": "This is the invite link to invite players to this server.",
-                    "color": 5814783,
-                    "fields": [
-                      {
-                        "name": "Link",
-                         "value": "https://discord.gg/ZN4DrdGg"
-                      }
-                    ],
-                    "footer": {
-                      "text": "If you're having a problem with the invite link. Contact L_Cypherus."
-                    }
-                }
-        });
-    }
+module.exports = async function(client /* bot client */, msg /* message object */, args /* arguments */) {
+  const exampleEmbed = new Discord.MessageEmbed()
+	.setColor('#3CA489')
+	.setTitle('Pen and Players Roleplayer Server Invite Link')
+	.setURL('https://discord.gg/ZN4DrdGg')
+	.setDescription('This is the invite link to invite players to this server.')
+	.setThumbnail('https://cdn.discordapp.com/attachments/834882298268221460/840171923093585940/icon.png')
+	.addFields(
+		{ name: 'Link', value: 'https://discord.gg/ZN4DrdGg' },
+	)
+	.setFooter('&invitelink - Contact L_Cypherus when you\'re having problems with the invite link.');
+
+  msg.channel.send(exampleEmbed);
 };
