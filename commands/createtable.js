@@ -2,9 +2,11 @@ const Discord = require('discord.js');
 const fetch = require('node-fetch');
 
 module.exports = async function(client, msg, args) {
-    let keywords = 'dnd';
+    let tableName = 'dnd';
+    let dm = msg.author.id;
     if (args.length > 0) {
-        keywords = args.join(' ');
+        dm = args[0];
+        tableName = args.slice(1,args.length).join(" ");
     }
 
     // Guild the user needs to have the role in
@@ -18,7 +20,8 @@ module.exports = async function(client, msg, args) {
 
     // Check if they have the role 
     if (member.roles.cache.has(requiredRole.id)) {
-        msg.channel.send(keywords.args[0]);
+        msg.channel.send("DM: " + dm);
+        msg.channel.send("Table Name: " + tableName)
     } else {
         msg.channel.send("You do not have the required role");
     };
