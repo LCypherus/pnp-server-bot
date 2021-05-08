@@ -5,6 +5,7 @@ module.exports = async function(client, msg, args) {
     let tableName = 'dnd';
     let dm = msg.author.id;
     if (args.length > 0) {
+        dm = args[0];
         tableName = args.slice(1,args.length).join(" ");
     }
 
