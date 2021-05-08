@@ -1,5 +1,6 @@
 const fetch = require('node-fetch'); // maybe include this back in if the code fails to work?
-const Discord = require("discord.js")
+const Discord = require("discord.js");
+const math = require("mathjs");
 
 function randomNum(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
@@ -19,7 +20,8 @@ function roll(rollString){
 	totals.forEach(function(num){
 		rollString = rollString.replace(/\d+d\d+/, num);
 	})
-	var evaluatedRoll = eval(rollString);
+	//var evaluatedRoll = eval(rollString);
+	var evaluatedRoll = math.evaluate(rollString);
 	console.log(evaluatedRoll);
 	return evaluatedRoll;
 }
