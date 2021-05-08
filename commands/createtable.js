@@ -4,24 +4,29 @@ const fetch = require('node-fetch');
 module.exports = async function(client, msg, args) {
     let tableName = 'dnd';
     let dm = msg.author.id;
+    let game = 822737501411737602; //dnd role
     if (args.length > 0) {
-        dm = args[0];
-        tableName = args.slice(1,args.length).join(" ");
+        dm = args[1];
+        tableName = args.slice(2,args.length).join(" ");
+        game = args[0];
     }
 
-    // Guild the user needs to have the role in
-    let guildA = client.guilds.cache.get("685583244154109986");
-
-    // Role that the user needs
-    let requiredRole = guildA.roles.cache.get("733822632004288553");
-
-    // Member object of the user in guildA
-    let member = guildA.members.cache.get(msg.author.id);
+    let guild = client.guilds.cache.get("685583244154109986"); // Guild the user needs to have the role in
+    let requiredRole = guild.roles.cache.get("733822632004288553"); // Role that the user needs
+    let member = guild.members.cache.get(msg.author.id); // Member object of the user in guildA
 
     // Check if they have the role 
     if (member.roles.cache.has(requiredRole.id)) {
         msg.channel.send("DM: " + dm);
-        msg.channel.send("Table Name: " + tableName)
+        msg.channel.send("Table Name: " + tableName);
+
+        guild.roles.create({
+            data: {
+              name: tableName,
+              color: 'BLUE',
+            }
+         })
+            .then(console.log)
     } else {
         msg.channel.send("You do not have the required role");
     };
