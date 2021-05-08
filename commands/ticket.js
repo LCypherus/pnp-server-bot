@@ -5,9 +5,14 @@ module.exports = async function (client, msg, args){
     let ticketInfo = "This is a general ticket.";
     let ticketPrivate = false;
     let ticketNewTable = false;
-    let textMain = "Hello <@${msg.author.id}>";
-    let textAdminsOnly = "Admins only ticket";
-    let textNewTicket = "New ticket text";
+    let textMain = "Hey <@" + msg.author.id + ">\n\nPlease describe the reasoning for opening this ticket, include any information you think may be relevant such as proof, other third parties and so on.\n\nThe <@&733822632004288553> and the <@&817145865105178624> will be with you shortly.";
+    let textAdminsOnly = "Hey <@" + msg.author.id + ">\n\nThis is an admins only ticket, meaning only the <@&733822632004288553> will see your messages. Please describe the reasoning for opening this ticket, include any information you think may be relevant such as proof, other third parties and so on.\n\nWe will be with you shortly.";
+    let textNewTicket = "Hey <@" + msg.author.id + ">\n\nGreat to see you opened a ticket to start your own table, here in Pen and Player RP server. Please, answer the following questions.\n\nThe <@&733822632004288553> and the <@&817145865105178624> will be with you shortly.";
+    const newTableEmbed = new Discord.MessageEmbed()
+	.setColor('#3CA489')
+	.setTitle('Starting a new table questions')
+	.setDescription('01. Are you new to DMing?\n02. What format/game do you want to use?\n03. Are you familiar with the format you want to use?\n04. What’s your campaign idea?\n05. How is the campaign going to start?\n06. How many days do you need to start off when your table is created?\n07. How can we help you make your campaign successful to you?\n08. What is the name of your campaign?\n09. Voice or Pbp?\n10. How many players will you handle? ')
+	.setThumbnail('https://cdn.discordapp.com/attachments/834882298268221460/840171923093585940/icon.png')
     if (args.length > 0){
         let start = 1;
         if (args[1] == "adminsOnly"){
@@ -73,6 +78,7 @@ module.exports = async function (client, msg, args){
         ]
         })
         createdChannel.send(textNewTicket);
+        createdChannel.send(newTableEmbed);
     }
     else{
         const createdChannel = await guild.channels.create("Ticket for 2 " + msg.author.username,{ 
