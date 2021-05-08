@@ -28,8 +28,7 @@ module.exports = async function (client, msg, args){
         ticketInfo = ticketInfo.join(" ");
     }
 
-    console.log(ticketNewTable);
-    // Create a new channel.
+    // Create a new channel
 
     const ticketCategory = "772543356084551710"; // category for Tickets
     if (ticketPrivate){
