@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 module.exports = async function(client /* bot client */, msg /* message object */, args /* arguments */) {
-  const exampleEmbed = new Discord.MessageEmbed()
+  const inviteLinkEmbed = new Discord.MessageEmbed()
 	.setColor('#3CA489')
 	.setTitle('Pen and Players Roleplayer Server Invite Link')
 	.setURL('https://discord.gg/ZN4DrdGg')
@@ -12,5 +12,5 @@ module.exports = async function(client /* bot client */, msg /* message object *
 	)
 	.setFooter('&invitelink - Contact L_Cypherus when you\'re having problems with the invite link.');
 
-  msg.channel.send(exampleEmbed);
+  msg.channel.send(inviteLinkEmbed);
 };
