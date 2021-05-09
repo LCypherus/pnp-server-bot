@@ -23,22 +23,19 @@ module.exports = async function(client, msg, args) {
 
         guild.roles.create({
             data: {
-              name: tableName,
-              color: 'BLUE',
+                name: tableName,
+                color: 'BLUE',
             }
-         })
-         .then(role => {
-          let rolesId = '"' + role.id + '"';
-          console.log(rolesId);
-         }).then(cat => {
-            msg.guild.channels.create('Important ', {
-                        type: 'category',
-                        permissionOverwrites: [
-                            {
-                                id: rolesId,
-                                allow: ['VIEW_CHANNEL'],
-                            }]
-        })}).catch(console.error);
+        }).then(role => {
+            msg.guild.channels.create(tableName, {
+                type: 'category',
+                position: 1,
+                permissionOverwrites: [{
+                    id: role.id,
+                    allow: ['VIEW_CHANNEL'],
+                }]
+            });
+        }).catch(console.error);
     } else {
         msg.channel.send("You do not have the required role");
     };
