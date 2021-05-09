@@ -28,7 +28,7 @@ module.exports = async function(client, msg, args) {
             }
          })
          .then(role => {
-          let rolesId = role.id;
+          let rolesId = '"' + role.id + '"';
           console.log(rolesId);
          }).then(cat => {
             msg.guild.channels.create('Important ', {
@@ -38,7 +38,7 @@ module.exports = async function(client, msg, args) {
                                 id: rolesId,
                                 allow: ['VIEW_CHANNEL'],
                             }]
-        })})
+        })}).catch(console.error);
     } else {
         msg.channel.send("You do not have the required role");
     };
