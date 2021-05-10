@@ -12,6 +12,8 @@ module.exports = async function(client, msg, args) {
     let spectator = "733945802296393793";
     let rolesId = "840834624501448744"; // Testrole
     let gameid = "822737501411737602"; // DnD Role
+    let dmID = dm.slice(1, dm.length);
+    dmID = client.users.cache.find(user => user.username === dmID);
 
     if (game == "dnd"){
         gameid = "822737501411737602"; 
@@ -33,6 +35,7 @@ module.exports = async function(client, msg, args) {
     // Check if they have the role 
     if (member.roles.cache.has(requiredRole.id)) {
         msg.channel.send("DM: " + dm);
+        msg.channel.send("DM ID:" + dmID);
         msg.channel.send("Table Name: " + tableName);
         msg.channel.send("Table Shorthand: " + tableShorthand); // the shorthand identifier for each table; mz, anb, etc.
 
