@@ -5,7 +5,8 @@ module.exports = async function(client, msg, args) {
     let tableName = 'dnd';
     let dm = msg.author.id;
     let game = 822737501411737602; //dnd role
-    let rolesId = 840834624501448744;
+    let role = 822737501411737602; //dnd role
+    let categoryId = 720689721168101435;
     if (args.length > 0) {
         dm = args[1];
         tableName = args.slice(2,args.length).join(" ");
@@ -30,11 +31,20 @@ module.exports = async function(client, msg, args) {
                 color: 'BLUE',
             }
         }).then(role => {
-            msg.guild.channels.create(tableName, {
+            rolesId = role.id;
+            return msg.guild.channels.create(tableName, {
                 type: 'category',
-                position: 1,
                 permissionOverwrites: [{
-                    id: role.id,
+                    id: rolesId,
+                    allow: ['VIEW_CHANNEL'],
+                }]
+            });
+        }).then(cat => {
+            msg.guild.channels.create(tableShorthand, {
+                type: 'text',
+                parent: cat,
+                permissionOverwrites: [{
+                    id: rolesId,
                     allow: ['VIEW_CHANNEL'],
                 }]
             });
@@ -42,6 +52,4 @@ module.exports = async function(client, msg, args) {
     } else {
         msg.channel.send("You do not have the required role");
     };
-    
-    console.log(args)
 };
