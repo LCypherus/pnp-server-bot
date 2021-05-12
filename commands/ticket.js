@@ -24,6 +24,7 @@ module.exports = async function (client, msg, args){
             ticketNewTable = true;
         }
         else {
+            ticketElse = true;
         }
         let ticketInfo = args.slice(start, args.length);
         ticketInfo = ticketInfo.join(" ");
@@ -33,7 +34,7 @@ module.exports = async function (client, msg, args){
 
     const ticketCategory = "772543356084551710"; // category for Tickets
     if (ticketPrivate){
-        const createdChannel = await guild.channels.create("Ticket private: " + msg.author.username,{ 
+        const createdChannel = await guild.channels.create("Private ticket " + msg.author.username,{ 
         type: "text",
         parent: ticketCategory,
         permissionOverwrites: [
@@ -79,8 +80,11 @@ module.exports = async function (client, msg, args){
         createdChannel.send(textNewTicket);
         createdChannel.send(newTableEmbed);
     }
+    else if (ticketElse){
+        msg.channel.send("You used a wrong command to start your ticket. Use `&help ticket` if you want to find the correct command.");
+    }
     else{
-        const createdChannel = await guild.channels.create("Ticket for 2 " + msg.author.username,{ 
+        const createdChannel = await guild.channels.create("Ticket by " + msg.author.username,{ 
         type: "text",
         parent: ticketCategory,
         permissionOverwrites: [
