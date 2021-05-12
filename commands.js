@@ -2,8 +2,9 @@ const roll = require('./commands/roll.js');
 const invitelink = require('./commands/invitelink.js');
 const ticket = require('./commands/ticket.js');
 const createtable = require('./commands/createtable.js');
+const help = require('./commands/help.js');
 
-const commands = { roll, invitelink, ticket, createtable };
+const commands = { roll, invitelink, ticket, createtable, help };
 
 module.exports = async function(client, msg) {
     let tokens /* arguments */ = msg.content.split(' ');
