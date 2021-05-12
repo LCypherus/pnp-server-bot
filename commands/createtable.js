@@ -28,7 +28,7 @@ module.exports = async function(client, msg, args) {
     let tableShorthand = tableName.match(/(?:^| )(\w)/g).join("").replace(/ /gi, ""); // This should be a string without spaces
 
     let guild = client.guilds.cache.get("685583244154109986"); // Guild the user needs to have the role in
-    let requiredRole = guild.roles.cache.get("733822632004288553"); // Role that the user needs
+    let requiredRole = guild.roles.cache.get("733822632004288553", "817145865105178624"); // Role that the user needs
     let member = guild.members.cache.get(msg.author.id); // Member object of the user in guildA
 
     // Check if they have the role 
