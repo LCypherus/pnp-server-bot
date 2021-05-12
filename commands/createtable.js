@@ -160,7 +160,7 @@ module.exports = async function(client, msg, args) {
                     { name: 'Table Shorthand', value: tableShorthand, inline: true },
                     { name: 'Playersrole', value: tableName + " Player", inline: true },
 	            )
-	            .setFooter('&createtable - Contact L_Cypherus when you\'re having problems with this c.');
+	            .setFooter('&createtable - Contact L_Cypherus when you\'re having problems with this command.');
 
                 msg.channel.send(createtableEmbed);
         }).catch(console.error);
