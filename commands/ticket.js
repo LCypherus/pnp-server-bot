@@ -16,7 +16,7 @@ module.exports = async function (client, msg, args){
 	.setDescription('01. Are you new to DMing?\n02. What format/game do you want to use?\n03. Are you familiar with the format you want to use?\n04. What’s your campaign idea?\n05. How is the campaign going to start?\n06. How many days do you need to start off when your table is created?\n07. How can we help you make your campaign successful to you?\n08. What is the name of your campaign?\n09. Voice or Pbp?\n10. How many players will you handle? ')
     if (args.length > 0){
         let start = 1;
-        if (args[0] == "open" && args[1] == ""){
+        if (args[0] == "open" && args[1] == null){
             start = 2;
             ticketNormal = true;
         }
