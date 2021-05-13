@@ -15,16 +15,19 @@ module.exports = async function (client, msg, args){
 	.setDescription('01. Are you new to DMing?\n02. What format/game do you want to use?\n03. Are you familiar with the format you want to use?\n04. What’s your campaign idea?\n05. How is the campaign going to start?\n06. How many days do you need to start off when your table is created?\n07. How can we help you make your campaign successful to you?\n08. What is the name of your campaign?\n09. Voice or Pbp?\n10. How many players will you handle? ')
     if (args.length > 0){
         let start = 1;
-        if (args[1] == "adminsOnly"){
+        if (args == "open adminsOnly"){
             start = 2;
             ticketPrivate = true;
         }
-        else if (args[1] == "newTable"){
+        else if (args == "open newTable"){
             start = 2;
             ticketNewTable = true;
         }
+        if (args == "open"){
+            start = 2;
+            ticketNormal = true;
+        }
         else {
-            ticketElse = true;
         }
         let ticketInfo = args.slice(start, args.length);
         ticketInfo = ticketInfo.join(" ");
@@ -80,34 +83,33 @@ module.exports = async function (client, msg, args){
         createdChannel.send(textNewTicket);
         createdChannel.send(newTableEmbed);
     }
-    else if (ticketElse){
-        msg.channel.send("You used a wrong command to start your ticket. Use `&help ticket` if you want to find the correct command.");
-    }
-    else{
+    else if (ticketNormal){
         const createdChannel = await guild.channels.create("Ticket by " + msg.author.username,{ 
-        type: "text",
-        parent: ticketCategory,
-        permissionOverwrites: [
-            {
-                id: msg.guild.roles.everyone, // Everyone
-                deny: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
-            },
-            {
-                id: "733822632004288553", // Grand Master
-                allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
-            },
-            {
-                id: "817145865105178624", // Assistant Grand Master
-                allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
-            },
-            {
-                id: msg.author.id,
-                allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
-            }
-        ]
-        })
-        createdChannel.send(textMain);
-
+            type: "text",
+            parent: ticketCategory,
+            permissionOverwrites: [
+                {
+                    id: msg.guild.roles.everyone, // Everyone
+                    deny: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
+                },
+                {
+                    id: "733822632004288553", // Grand Master
+                    allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
+                },
+                {
+                    id: "817145865105178624", // Assistant Grand Master
+                    allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
+                },
+                {
+                    id: msg.author.id,
+                    allow: ["VIEW_CHANNEL", "SEND_MESSAGES", "READ_MESSAGE_HISTORY"]
+                }
+            ]
+            })
+            createdChannel.send(textMain);
+    }
+    else {
+        msg.channel.send("You used a wrong command to start your ticket. Use `&help ticket` if you want to find the correct command.");
     }
 
 }
