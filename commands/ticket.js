@@ -28,6 +28,7 @@ module.exports = async function (client, msg, args){
             ticketNewTable = true;
         }
         else {
+            ticketElse = true;
         }
         let ticketInfo = args.slice(start, args.length);
         ticketInfo = ticketInfo.join(" ");
@@ -108,8 +109,9 @@ module.exports = async function (client, msg, args){
             })
             createdChannel.send(textMain);
     }
-    else {
+    else if (ticketElse) {
         msg.channel.send("You used a wrong command to start your ticket. Use `&help ticket` if you want to find the correct command.");
     }
 
+    else {}
 }
