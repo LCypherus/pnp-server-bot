@@ -8,9 +8,9 @@ This bot is made for the Pen and Players Roleplay Server.
 - Automatic server statistic
 - Ticket System (&ticket)
 - Createtable (&createtable)
+- Help command
 
 ## In progress
-- Help command
 
 ## Coming Soon
 - Reaction Role Creation
