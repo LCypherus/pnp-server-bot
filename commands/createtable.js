@@ -32,7 +32,7 @@ module.exports = async function(client, msg, args) {
     let member = guild.members.cache.get(msg.author.id); // Member object of the user in guildA
 
     // Check if they have the role 
-    if (member.roles.cache.has(requiredRole.id)) {
+    if (member.roles.cache.has(requiredRole.id)) { 
         guild.roles.create({
             data: {
                 name: tableName + " Player",

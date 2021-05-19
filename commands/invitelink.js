@@ -14,3 +14,4 @@ module.exports = async function(client /* bot client */, msg /* message object *
 
   msg.channel.send(inviteLinkEmbed);
 };
+
