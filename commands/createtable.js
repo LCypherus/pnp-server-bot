@@ -41,7 +41,7 @@ module.exports = async function(client, msg, args) {
             }
         }).then(role => {
             rolesId = role.id;
-            return msg.guild.channels.create("(X/Z) " + tableName, {
+            return msg.guild.channels.create("(X/Y) " + tableName, {
                 type: 'category',
                 permissionOverwrites: [
                     {
